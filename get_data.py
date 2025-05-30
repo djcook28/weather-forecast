@@ -1,9 +1,11 @@
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+import os
 
-api_key = '53ae3364036f36368188752f03970737'
-
+load_dotenv()
+api_key = os.getenv("API_KEY")
 def get_data(days, place):
     url = f'http://api.openweathermap.org/data/2.5/forecast?q={place}&appid={api_key}'
     response = requests.get(url)
